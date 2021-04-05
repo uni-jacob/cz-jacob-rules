@@ -2,10 +2,13 @@ import os
 import re
 from typing import List, Dict, Any
 
+from commitizen import defaults
 from commitizen.cz.base import BaseCommitizen
 
 
 class JacobCz(BaseCommitizen):
+    bump_pattern = defaults.bump_pattern
+    bump_map = defaults.bump_map
     change_type_map = {
         "feat": "Добавлено",
         "fix": "Исправлено",
