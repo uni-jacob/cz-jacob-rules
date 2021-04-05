@@ -6,6 +6,11 @@ from commitizen.cz.base import BaseCommitizen
 
 
 class JacobCz(BaseCommitizen):
+    change_type_map = {
+        "feat": "Добавлено",
+        "fix": "Исправлено",
+    }
+
     def questions(self) -> list:
         """Questions regarding the commit message."""
         questions: List[Dict[str, Any]] = [
