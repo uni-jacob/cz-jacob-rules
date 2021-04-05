@@ -1,14 +1,32 @@
+## v0.3.0 (2021-04-06)
+
+### Добавлено
+
+- improve generating changelog
+- inherit defaults patterns
+
+### Исправлено
+
+- improve patterns
+
 ## v0.2.0 (2021-04-06)
 
+### Добавлено
 
-- feat: add changelog custom rules
-- refactor: translate into russian
-- feat: add description of convention
-- feat: inherit default config
-- fix: change format of choices
-- build(git): update gitignore
+- add changelog custom rules
+- add description of convention
+- inherit default config
+
+### Рефактор
+
+- translate into russian
+
+### Исправлено
+
+- change format of choices
 
 ## v0.1.0 (2021-04-06)
 
+### Добавлено
 
-- feat: inital commit with basic configuration of commitizen
+- inital commit with basic configuration of commitizen

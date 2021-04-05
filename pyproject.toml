@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cz_jacob"
-version = "0.2.0"
+version = "0.3.0"
 description = "Custom commitizen's rules"
 authors = ["Daniil <dadyarri@gmail.com>"]
 license = "MIT"
@@ -12,7 +12,7 @@ python = "^3.9"
 
 [tool.commitizen]
 name = "cz_jacob"
-version = "0.2.0"
+version = "0.3.0"
 tag_format = "v$version"
 version_files = [
     "pyproject.toml:version"
