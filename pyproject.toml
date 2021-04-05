@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "cz_jacob"
+version = "0.2.0"
+description = "Custom commitizen's rules"
+authors = ["Daniil <dadyarri@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[tool.commitizen]
+name = "cz_jacob"
+version = "0.2.0"
+tag_format = "v$version"
+version_files = [
+    "pyproject.toml:version"
+]
+update_changelog_on_bump = true
+bump_message = "build(project): update version $current_version to $new_version"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
