@@ -9,6 +9,8 @@ from commitizen.cz.base import BaseCommitizen
 class JacobCz(BaseCommitizen):
     bump_pattern = defaults.bump_pattern
     bump_map = defaults.bump_map
+    commit_parser = defaults.commit_parser
+    changelog_pattern = defaults.bump_pattern
     change_type_map = {
         "feat": "Добавлено",
         "fix": "Исправлено",
