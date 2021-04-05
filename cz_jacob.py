@@ -1,6 +1,6 @@
 import os
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 from commitizen import defaults
 from commitizen.cz.base import BaseCommitizen
@@ -171,6 +171,10 @@ class JacobCz(BaseCommitizen):
         if m is None:
             return ""
         return m.group(3).strip()
+
+    @staticmethod
+    def changelog_hook(_: str, partial_changelog: Optional[str]) -> str:
+        return partial_changelog
 
 
 discover_this = JacobCz
