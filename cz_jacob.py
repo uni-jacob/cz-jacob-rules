@@ -12,54 +12,49 @@ class JacobCz(BaseCommitizen):
             {
                 "type": "list",
                 "name": "prefix",
-                "message": "Select the type of change you are committing",
+                "message": "Выберите тип изменений",
                 "choices": [
                     {
                         "value": "fix",
-                        "name": "fix: A bug fix. Correlates with PATCH in SemVer",
+                        "name": "fix: Исправление бага. Соответствует PATCH в нотации SemVer",
                     },
                     {
                         "value": "feat",
-                        "name": "feat: A new feature. Correlates with MINOR in SemVer",
+                        "name": "feat: Новый функционал. Соответствует MINOR в нотации SemVer",
                     },
-                    {"value": "docs", "name": "docs: Documentation only changes"},
+                    {"value": "docs", "name": "docs: Изменение документации",},
                     {
                         "value": "style",
                         "name": (
-                            "style: Changes that do not affect the "
-                            "meaning of the code (white-space, formatting,"
-                            " missing semi-colons, etc)"
+                            "style: Изменения, не меняющие смысл кода (форматирование, пробелы, запятые, пр.)"
                         ),
                     },
                     {
                         "value": "refactor",
                         "name": (
-                            "refactor: A code change that neither fixes "
-                            "a bug nor adds a feature"
+                            "refactor: Изменения кода, ни не добавляющие нового функционала, ни не чинящие баги"
                         ),
                     },
                     {
                         "value": "perf",
-                        "name": "perf: A code change that improves performance",
+                        "name": "perf: Улучшения производительности",
                     },
                     {
                         "value": "test",
                         "name": (
-                            "test: Adding missing or correcting " "existing tests"
+                            "test: Добавление или исправления тестов"
                         ),
                     },
                     {
                         "value": "build",
                         "name": (
-                            "build: Changes that affect the build system or "
-                            "external dependencies (example scopes: pip, docker, npm)"
+                            "build: Изменения, касающиеся системы сборки или зависимостей (примеры: deps, docker)"
                         ),
                     },
                     {
                         "value": "ci",
                         "name": (
-                            "ci: Changes to our CI configuration files and "
-                            "scripts (example scopes: GitLabCI)"
+                            "ci: Изменения конфига Github Actions"
                         ),
                     },
                 ],
@@ -68,26 +63,26 @@ class JacobCz(BaseCommitizen):
                 "type": "input",
                 "name": "scope",
                 "message": (
-                    "What is the scope of this change? (class or file name): (press [enter] to skip)\n"
+                    "Что меняет этот коммит: ([enter] чтобы пропустить)\n"
                 ),
             },
             {
                 "type": "input",
                 "name": "subject",
                 "message": (
-                    "Write a short and imperative summary of the code changes: (lower case and no period)\n"
+                    "Краткое описание изменений в активном залоге: (нижний регистр, без точки в конце)\n"
                 ),
             },
             {
                 "type": "input",
                 "name": "body",
                 "message": (
-                    "Provide additional contextual information about the code changes: (press [enter] to skip)\n"
+                    "Дополнительная информация об изменениях: ([enter] чтобы пропустить)\n"
                 ),
             },
             {
                 "type": "confirm",
-                "message": "Is this a BREAKING CHANGE? Correlates with MAJOR in SemVer",
+                "message": "Это НЕСОВМЕСТИМОЕ ИЗМЕНЕНИЕ? Соответствует MAJOR в нотации SemVer",
                 "name": "is_breaking_change",
                 "default": False,
             },
@@ -95,8 +90,8 @@ class JacobCz(BaseCommitizen):
                 "type": "input",
                 "name": "footer",
                 "message": (
-                    "Footer. Information about Breaking Changes and "
-                    "reference issues that this commit closes: (press [enter] to skip)\n"
+                    "Футер. Информация о Несовместимом изменении и "
+                    "упоминание ишью, которое закрывает этот коммит: ([enter] чтобы пропустить)\n"
                 ),
             },
         ]
@@ -135,11 +130,11 @@ class JacobCz(BaseCommitizen):
 
     def schema(self) -> str:
         return (
-            "<type>(<scope>): <subject>\n"
+            "<тип>(<область изменений>): <краткое описание>\n"
+            "<ПУСТАЯ СТРОКА>\n"
+            "<подробное описание>\n"
             "<BLANK LINE>\n"
-            "<body>\n"
-            "<BLANK LINE>\n"
-            "(BREAKING CHANGE: )<footer>"
+            "(BREAKING CHANGE: )<футер>"
         )
 
     def schema_pattern(self) -> str:
