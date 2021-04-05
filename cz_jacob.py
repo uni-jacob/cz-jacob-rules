@@ -14,6 +14,7 @@ class JacobCz(BaseCommitizen):
     change_type_map = {
         "feat": "Добавлено",
         "fix": "Исправлено",
+        "refactor": "Рефактор"
     }
 
     def questions(self) -> list:
@@ -32,7 +33,10 @@ class JacobCz(BaseCommitizen):
                         "value": "feat",
                         "name": "feat: Новый функционал. Соответствует MINOR в нотации SemVer",
                     },
-                    {"value": "docs", "name": "docs: Изменение документации",},
+                    {
+                        "value": "docs",
+                        "name": "docs: Изменение документации",
+                    },
                     {
                         "value": "style",
                         "name": (
@@ -148,11 +152,11 @@ class JacobCz(BaseCommitizen):
         )
 
     def schema_pattern(self) -> str:
-        PATTERN = (
+        pattern = (
             r"(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|bump)!?"
             r"(\(\S+\))?:(\s.*)"
         )
-        return PATTERN
+        return pattern
 
     def info(self) -> str:
         dir_path = os.path.dirname(os.path.realpath(__file__))
